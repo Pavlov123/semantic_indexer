@@ -1,0 +1,45 @@
+{
+	"db-workers": 1,
+	"db-queue": "semantic-index-db",
+	"web-workers": 20,
+	"web-worker-endpoints-queue": "semantic-index-endpoints-registration",
+	"data-paths": {
+		"sparql-endpoints": "data/sparql_endpoints_list.txt"
+	},
+	"database": {
+		"name": "semantic_index",
+		"user": "semantic_index"
+	},
+	"rabbitmq": {
+		"user": "semantic_index",
+		"pass": "****",
+		"vhost": "semantic_index"
+	},
+	"log-event-queue": "semantic-index-logs",
+	"logging": {
+		"version": 1,
+		"loggers": {
+			"root": {
+				"handlers": ["debug", "info", "error"],
+				"level": "DEBUG"
+			}
+		},
+		"handlers": {
+			"error": {
+				"class": "logging.FileHandler",
+				"filename": "/tmp/semantic-indexer-error.log",
+				"level": "ERROR"
+			},
+			"debug": {
+				"class": "logging.FileHandler",
+				"filename": "/tmp/semantic-indexer-debug.log",
+				"level": "DEBUG"
+			},
+			"info": {
+				"class": "logging.FileHandler",
+				"filename": "/tmp/semantic-indexer-info.log",
+				"level": "INFO"
+			}
+		}
+	}
+}
