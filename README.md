@@ -156,3 +156,15 @@ authentication and will NOT attempt to use a password.
 		These are python logging settings if you are not familiar with
 		the python logging system see the [relevant python documentation]
 		(https://docs.python.org/2/library/logging.html)
+
+Running indexer/index.py
+------------------------
+index.py will output a unique session id, that has been passed
+as an argument to all child processes. In order to kill all
+the processes use the following command.
+
+	ps ax | grep {session_id} | sed 's/^ //' | cut -d ' ' -f 1 | xargs kill
+
+i.e
+
+	ps ax | grep 10169789888 | sed 's/^ //' | cut -d ' ' -f 1 | xargs kill

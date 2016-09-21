@@ -8,8 +8,9 @@ from modules import async_logger
 from random import randint
 
 # Start logging process
-logging = Popen(['python', 'logger.py'])
-session_id = randint(0, 1000000000)  # unique id to identify processes.
+session_id = randint(10000000000, 11000000000)  # unique id to identify processes.
+print session_id
+logging = Popen(['python', 'logger.py', '%d' % session_id])
 async_logger.debug(
     'SESSION-%d-STARTED: %s' % (session_id, time.time())
 )
