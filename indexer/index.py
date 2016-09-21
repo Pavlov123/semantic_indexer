@@ -9,7 +9,7 @@ from random import randint
 
 # Start logging process
 logging = Popen(['python', 'logger.py'])
-session_id = randint(0, 1000000000)
+session_id = randint(0, 1000000000)  # unique id to identify processes.
 async_logger.debug(
     'SESSION-%d-STARTED: %s' % (session_id, time.time())
 )
