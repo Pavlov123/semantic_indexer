@@ -6,6 +6,12 @@ Introduction
 This repository contains the semantic indexer and a tool for
 sparql endpoints discovering registered in datahub.io.
 
+Datahub Usage
+---------------
+If you want to update the list of sparql endpoints. You can run
+datahub/find_sparql_endpoints.py, be sure to add your api key to
+datahub/datahub-credentials.json before doing so.
+
 Indexer Deployment Guide
 ----------------
 Clone the project to your server and follow the following
