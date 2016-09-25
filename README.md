@@ -157,6 +157,10 @@ authentication and will NOT attempt to use a password.
 		the python logging system see the [relevant python documentation]
 		(https://docs.python.org/2/library/logging.html)
 
+2. Ensure the database tables are created.
+
+	1. run create-tables.py to create the database tables.
+
 Running indexer/index.py
 ------------------------
 index.py will output a unique session id, that has been passed
