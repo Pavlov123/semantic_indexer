@@ -65,7 +65,7 @@ try:
         channel.basic_ack(delivery_tag=method.delivery_tag)
         sparql_endpoint = sparql.Service(endpoint, "utf-8", "GET")
         offset = 0
-        limit = 1000
+        limit = settings['web-worker-batch-size']
 
         query = 'select * where {?s ?p ?o} offset %d limit %d'
         async_logger.info(
