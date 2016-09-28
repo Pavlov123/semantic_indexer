@@ -19,12 +19,12 @@ class BaseModel(Model):
 
 class Resource(BaseModel):
     id = PrimaryKeyField()
-    uri = CharField(unique=True, max_length=512)
+    uri = CharField(unique=True, max_length=4096)
 
 
 class Endpoint(BaseModel):
     id = PrimaryKeyField()
-    url = CharField(unique=True, max_length=512)
+    url = CharField(unique=True, max_length=4096)
 
 
 class Backlink(BaseModel):
