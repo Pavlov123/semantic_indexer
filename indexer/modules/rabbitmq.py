@@ -15,7 +15,7 @@ channel = connection.channel()
 channel.queue_declare(queue=settings['web-worker-endpoints-queue'])
 channel.queue_declare(queue=settings['log-event-queue'])
 channel.queue_declare(queue=settings['db-queue'])
-channel.basic_qos(prefetch_count=4)
+channel.basic_qos(prefetch_count=1)
 
 
 def create_exchange_queue(exchange):

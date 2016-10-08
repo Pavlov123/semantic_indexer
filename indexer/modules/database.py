@@ -30,4 +30,5 @@ class Endpoint(BaseModel):
 class Backlink(BaseModel):
     resource = ForeignKeyField(Resource, related_name='endpoints')
     endpoint = ForeignKeyField(Endpoint, related_name='resources')
+    predicate = CharField(max_length=4096)
     count = IntegerField(default=0)

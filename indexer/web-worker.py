@@ -18,27 +18,27 @@ from modules.settings import settings
 class PartialRegistry(object):
     def __init__(self, endpoint):
         self.endpoint = endpoint
-        self._matches = defaultdict(int)
+        self._matches = defaultdict(lambda: defaultdict(int))
 
     def add_tuple(self, subject, verb, object_):
         if isinstance(subject, sparql.IRI):
-            self.process_iri(subject.value)
+            self.process_iri(verb.value, subject.value)
 
         if isinstance(object_, sparql.IRI):
-            self.process_iri(object_.value)
+            self.process_iri(verb.value, object_.value)
 
-    def process_iri(self, iri):
+    def process_iri(self, predicate, iri):
         if not re.match(r'^http.+', iri):
             return
 
         domain = urlparse(iri).netloc.split(':')[0]
         if re.match(r'.*dbpedia.org$', domain):
-            self._matches[iri] += 1
+            self._matches[iri][predicate] += 1
 
     def serialize(self):
         return {
             'endpoint': self.endpoint,
-            'resources': list(self._matches.items()),
+            'resources': self._matches,
         }
 
     def save(self):
