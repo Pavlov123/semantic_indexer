@@ -2,7 +2,7 @@ from modules.settings import settings
 
 from peewee import (
     PostgresqlDatabase, Model, CharField, PrimaryKeyField, ForeignKeyField,
-    IntegerField
+    IntegerField, TextField
 )
 
 
@@ -30,5 +30,5 @@ class Endpoint(BaseModel):
 class Backlink(BaseModel):
     resource = ForeignKeyField(Resource, related_name='endpoints')
     endpoint = ForeignKeyField(Endpoint, related_name='resources')
-    predicate = CharField(max_length=4096)
+    predicate = TextField()
     count = IntegerField(default=0)
