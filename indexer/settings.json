@@ -4,6 +4,7 @@
 	"web-workers": 20,
 	"web-worker-endpoints-queue": "semantic-index-endpoints-registration",
 	"web-worker-batch-size": 250,
+	"local-hostname-regex": ".*dbpedia.org$",
 	"data-paths": {
 		"sparql-endpoints": "data/sparql_endpoints_list.txt"
 	},

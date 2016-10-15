@@ -32,7 +32,7 @@ class PartialRegistry(object):
             return
 
         domain = urlparse(iri).netloc.split(':')[0]
-        if re.match(r'.*dbpedia.org$', domain):
+        if re.match(settings['local-hostname-regex'], domain):
             self._matches[iri][predicate] += 1
 
     def serialize(self):
